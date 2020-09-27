@@ -1,0 +1,18 @@
+{
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "vue", "html", "json", "javascriptreact"],
+  "vetur.format.options.tabSize": 2,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "eslint.run": "onSave",
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "vetur.validation.templateProps": true
+}
