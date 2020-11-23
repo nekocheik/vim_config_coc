@@ -22,6 +22,7 @@ set shiftwidth=2
 
 call plug#begin('~/.vim/plugged') 
 
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'hendrikpetertje/vimify'
 Plug 'konfekt/fastfold'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -80,6 +81,7 @@ let g:oceanic_next_terminal_italic = 1
 let g:coc_global_extensions=[ 
 	\ "coc-pairs",
 	\ "coc-xml", 
+	\ "coc-flutter", 
 	\ "coc-omnisharp",
 	\ "coc-lists",
 	\ "coc-phpactor",
@@ -415,3 +417,9 @@ let g:php_folding = 1
 
 " Spotify
 let g:spotify_token='NmUzYjQzMmRhZjNkNDViZmJlNDRjNDBlYTFhZjE4MmI6MjM2NDA5Y2Q2ZmRmNGRjZGIzOGVhODY2OTFlYmYyYmI='
+
+
+" dart
+let dart_html_in_string=v:true
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
