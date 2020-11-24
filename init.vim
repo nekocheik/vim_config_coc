@@ -22,8 +22,9 @@ set shiftwidth=2
 
 call plug#begin('~/.vim/plugged') 
 
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'hendrikpetertje/vimify'
 Plug 'konfekt/fastfold'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -345,9 +346,8 @@ au User lsp_setup call lsp#register_server({
      \ 'whitelist': ['php'],                                                     
      \ }) 
 
-
 " vim airline
-"
+
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
