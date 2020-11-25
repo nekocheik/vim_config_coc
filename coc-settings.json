@@ -1,7 +1,4 @@
 {
-  "list.normalMappings": {
-    "gu" : "git.chunkUndo"
-  }, 
   "explorer.icon.enableNerdfont": true,
   "eslint.filetypes": [
     "javascript",
@@ -10,40 +7,10 @@
     "typescriptreact",
     "vue"
   ],
-  "tsserver.enableJavascript": false,
-  "languageserver": {
-    "flow": {
-      "command": "flow-language-server",
-      "args": ["--stdio"],
-      "filetypes": ["javascript", "javascriptreact"],
-      "rootPatterns": [".flowconfig"]
-    },
-    "intelephense": {
-      "command": "intelephense",
-      "args": ["--stdio"],
-      "filetypes": ["php"],
-      "initializationOptions": {
-        "storagePath": "/tmp/intelephense"
-      }
-    }
-  },
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
+  "tsserver.enableJavascript": false,
   "html.filetypes": ["html", "handlebars", "htmldjango", "php"],
-  "vetur.validation.template": true,
-  "vetur.validation.templateProps": true,
-  "vetur.validation.interpolation": true,
-  "vetur.format.options.tabSize": 2,
   "eslint.enable": true,
-  "vetur.format.defaultFormatter.html": "prettier",
-  "vetur.format.defaultFormatter.scss": "prettier",
-  "vetur.dev.vlsPath": "./server/vetur",
-  "vetur.completion.autoImport": true,
-  "vetur.grammar.customBlocks": {
-    "docs": "md",
-    "i18n": "json"
-  },
   "eslint.run": "onSave",
-  "vetur.format.defaultFormatter.js": "prettier-eslint",
-  "git.enableGutters": true
 }
