@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nekocheik/vim_config_coc/issues"
   },
-  "homepage": "https://github.com/nekocheik/vim_config_coc#readme"
+  "homepage": "https://github.com/nekocheik/vim_config_coc#readme",
+  "dependencies": {
+    "vls": "^0.5.9"
+  }
 }
