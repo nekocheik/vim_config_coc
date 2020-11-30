@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src/assets'
 let g:netrw_dirhist_0='/Users/cheikkone/Desktop/project/local-money/src/components/layouts'
 let g:netrw_dirhist_9='/Users/cheikkone/Desktop/project/local-money/src/components'
 let g:netrw_dirhist_8='/Users/cheikkone/Desktop/project/local-money/src'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_5='/Users/cheikkone/Desktop/project/local-money/src/componen
 let g:netrw_dirhist_4='/Users/cheikkone/Desktop/project/local-money/src'
 let g:netrw_dirhist_3='/Users/cheikkone/Desktop/project/local-money'
 let g:netrw_dirhist_2='/Users/cheikkone/Desktop/project/local-money/src/components/atoms'
-let g:netrw_dirhist_1='/Users/cheikkone/Desktop/project/local-money/src/components'
