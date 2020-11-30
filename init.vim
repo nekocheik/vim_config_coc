@@ -16,10 +16,10 @@ set smartindent
 " let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
 
 " " move line 
-" map ∆ <A-j>
-" map ˚ <A-k>
-" map ˙ <A-h>
-" map ¬ <A-l>
+map ∆ <A-j>
+map ˚ <A-k>
+map ˙ <A-h>
+map ¬ <A-l>
 
 
 call plug#begin('~/.vim/plugged') 
@@ -33,6 +33,10 @@ Plug 'posva/vim-vue'
 
 " Plug 'matze/vim-move'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'tmux-plugins/vim-tmux-focus-events' 
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'roxma/vim-tmux-clipboard'
+
 " Plug 'tpope/vim-fugitive'
 " Plug 'asheq/close-buffers.vim'
 Plug 'bling/vim-bufferline'
@@ -48,9 +52,6 @@ Plug 'kien/ctrlp.vim'
 
 " Plug 'konfekt/fastfold' 
 " Plug 'pangloss/vim-javascript'
-" Plug 'tmux-plugins/vim-tmux-focus-events' 
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'roxma/vim-tmux-clipboard'
 " Plug 'cocopon/iceberg.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'neoclide/coc.nvim'
@@ -160,3 +161,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendors\|dist\'
 
 " coc
 let g:coc_global_extensions = ['coc-explorer']
+
+" explorer
+
+nmap <space>e :CocCommand explorer<CR>
