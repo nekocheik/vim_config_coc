@@ -1,25 +1,15 @@
 {
-	"explorer.icon.enableNerdfont": true,
-	"eslint.filetypes": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"vue"
-	], 
-	"tsserver.enableJavascript": false,
-	"languageserver": {
-		"flow": {
-			"command": "flow-language-server",
-			"args": ["--stdio"],
-			"filetypes": ["javascript", "javascriptreact"],
-			"rootPatterns": [".flowconfig"]
-		}
-	},
-	"eslint.autoFixOnSave": true,
-	"eslint.autoFix": true,
-	"html.filetypes": ["html", "handlebars", "htmldjango", "php"],
-	"eslint.enable": true,
-	"eslint.run": "onSave",
-	"coc.preferences.extensionUpdateCheck": "daily"
+  "explorer.icon.enableNerdfont": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ], 
+  "eslint.autoFixOnSave": false,
+  "eslint.autoFix": false,
+  "eslint.enable": true,
+  "eslint.run": "onSave",
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
