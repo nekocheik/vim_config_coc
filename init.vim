@@ -96,14 +96,20 @@ augroup lsp_install
     au!
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-
+let g:lsp_diagnostics_echo_delay = 2000
+let g:asyncomplete_popup_delay = 60
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_diagnostics_float_delay = 2000
 "completion
- inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 imap <c-space> <Plug>(asyncomplete_force_refresh)
+
 " snippet 
+
 
 if has('python3')
     let g:UltiSnipsExpandTrigger="<c-e>"
@@ -147,6 +153,8 @@ let g:coc_global_extensions = [
       \'coc-tailwindcss',
       \'coc-eslint',
       \'coc-prettier',
+      \'coc-vetur',
+      \'coc-html',
       \]
 
 " explorer 
@@ -168,4 +176,4 @@ nmap gc <Plug>(coc-git-commit)
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer) 
+xmap ag <Plug>(coc-git-chunk-outer)

@@ -6,10 +6,32 @@
     "typescript",
     "typescriptreact",
     "vue"
-  ], 
-  "eslint.autoFixOnSave": false,
-  "eslint.autoFix": false,
+  ],
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "html", "scss", "vue"], 
+  "prettier.eslintIntegration": {
+    "filePath": "./.eslintrc.json", 
+    "eslintPath": "./.eslintrc.js"
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.autoFix": true, 
+  "html.filetypes": ["html", "handlebars", "htmldjango", "php"],
+  "vetur.validation.template": true,
+  "vetur.validation.templateProps": true,
+  "vetur.validation.interpolation": true,
+  "vetur.format.options.tabSize": 2,
   "eslint.enable": true,
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "vetur.dev.vlsPath": "./server/vetur",
+  "vetur.completion.autoImport": true,
+  "vetur.grammar.customBlocks": {
+    "docs": "md",
+    "i18n": "json"
+  },
+  "eslint.options": { "configFile": "./.eslintrc.js" },
+  "vetur.trace.server": "verbose",
+  "vetur.dev.vlsPath": "~/.local/share/vim-lsp-settings/servers/vls/vls",
   "eslint.run": "onSave",
-  "coc.preferences.extensionUpdateCheck": "daily"
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "git.enableGutters": true
 }
