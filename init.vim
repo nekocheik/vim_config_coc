@@ -12,8 +12,8 @@ set shiftwidth=2
 set autoindent
 set smartindent
 
-" let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
-" let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
+let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
 
 " " move line 
 map ∆ <A-j>
@@ -24,41 +24,29 @@ map ¬ <A-l>
 
 call plug#begin('~/.vim/plugged') 
 Plug 'posva/vim-vue'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" for completion and snippets
-" Plug 'natebosch/vim-lsc'
-" Plug 'natebosch/vim-lsc-dart'
-" Plug 'dart-lang/dart-vim-plugin'
-
-" Plug 'matze/vim-move'
+Plug 'matze/vim-move'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'tmux-plugins/vim-tmux-focus-events' 
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'roxma/vim-tmux-clipboard'
-
-" Plug 'tpope/vim-fugitive'
-" Plug 'asheq/close-buffers.vim'
+Plug 'roxma/vim-tmux-clipboard' 
+Plug 'tpope/vim-fugitive'
+Plug 'asheq/close-buffers.vim'
 Plug 'bling/vim-bufferline'
 " Plug 'terryma/vim-smooth-scroll'
 Plug 'cohama/lexima.vim'
 " Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
-" Plug 'digitaltoad/vim-pug' 
-" Plug 'prabirshrestha/vim-lsp' 
-" Plug 'lighttiger2505/deoplete-vim-lsp'
-
+Plug 'kien/ctrlp.vim' 
 " Plug 'konfekt/fastfold' 
 " Plug 'pangloss/vim-javascript'
-" Plug 'cocopon/iceberg.vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" themes
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'neoclide/coc.nvim'
-" Plug 'arcticicestudio/nord-vim'
-" Plug 'mhartington/oceanic-next'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes' 
 
 " lsp 
 Plug 'prabirshrestha/vim-lsp'
@@ -74,13 +62,6 @@ Plug 'prabirshrestha/async.vim'
 Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
-" javascript typescript jsx
-" Plug 'pangloss/vim-javascript' 
-" Plug 'leafgarland/typescript-vim' 
-" Plug 'yuezk/vim-js'
-" Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'ianks/vim-tsx'
 
 " (Optional) Multi-entry selection UI.
 Plug 'vim-scripts/AnsiEsc.vim'
@@ -160,8 +141,31 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendors\|dist\'
 
 
 " coc
-let g:coc_global_extensions = ['coc-explorer']
+let g:coc_global_extensions = [
+      \'coc-explorer', 
+      \'coc-git', 
+      \'coc-tailwindcss',
+      \'coc-eslint',
+      \'coc-prettier',
+      \]
 
-" explorer
-
+" explorer 
 nmap <space>e :CocCommand explorer<CR>
+
+" git
+
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer) 
