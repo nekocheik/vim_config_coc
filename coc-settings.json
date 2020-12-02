@@ -1,4 +1,7 @@
 {
+  "list.normalMappings": {
+    "<leader>u" : "git.chunkUndo"
+  },
   "explorer.icon.enableNerdfont": true,
   "eslint.filetypes": [
     "javascript",

@@ -3,7 +3,7 @@ let mapleader=" "
 set clipboard=unnamed
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
-" noremap <C-w> :w<cr>
+noremap <C-w> :w<cr>
 nnoremap <Leader>q :bufdo :Bdelete<CR>
 inoremap <C-w> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
@@ -63,6 +63,8 @@ Plug 'SirVer/ultisnips'
 Plug 'prabirshrestha/async.vim'
 Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+" marks
+Plug 'kshenoy/vim-signature'
 
 
 " (Optional) Multi-entry selection UI.
