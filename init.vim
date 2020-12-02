@@ -3,17 +3,31 @@ let mapleader=" "
 set clipboard=unnamed
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
-" noremap <C-w> :w<cr>
+noremap <C-s> :w!<cr>
 nnoremap <Leader>q :bufdo :Bdelete<CR>
-inoremap <C-w> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
+
+
+if has("multi_byte")
+  if &encoding !~? '^u'
+    if &termencoding == ""
+      let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+  endif
+  setglobal fileencoding=utf-8
+  " Uncomment to have 'bomb' on by default for new files.
+  " Note, this will not apply to the first, empty buffer created at Vim startup.
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
 
 set shiftwidth=2
 set autoindent
 set smartindent
 
-let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
+" let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
+" let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
 
 " " move line 
 map ∆ <A-j>
@@ -67,7 +81,10 @@ Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 " (Optional) Multi-entry selection UI.
 Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-sensible'
+
 call plug#end() 
 " Theme
 
@@ -175,6 +192,14 @@ let g:coc_global_extensions = [
 
 " explorer 
 nmap <space>e :CocCommand explorer<CR>
+" ag 
+
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" preview
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
 " git
 
