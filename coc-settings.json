@@ -23,7 +23,8 @@
   "vetur.format.defaultFormatter.html": "prettier",
   "vetur.format.defaultFormatter.scss": "prettier",
   "vetur.dev.vlsPath": "./server/vetur",
-  "vetur.completion.autoImport": true,
+  "vetur.completion.autoImport": false,
+  "vetur.completion.useScaffoldSnippets": false,
   "vetur.grammar.customBlocks": {
     "docs": "md",
     "i18n": "json"
