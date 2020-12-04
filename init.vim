@@ -1,9 +1,12 @@
+set hidden
 set relativenumber
 let mapleader=" "
 set clipboard=unnamed
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
 noremap <C-s> :w!<cr>
+noremap <leader>b :CtrlPBuffer<CR>
+
 nnoremap <Leader>q :bufdo :Bdelete<CR>
 inoremap <C-w> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
@@ -163,6 +166,10 @@ let g:vue_pre_processors = []
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules)$'
+
+
+
+ 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
   \ 'file': '\v\.(exe|so|dll)$',
