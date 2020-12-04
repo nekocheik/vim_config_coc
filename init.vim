@@ -7,10 +7,10 @@ noremap <C-s> :w!<cr>
 nnoremap <Leader>q :bufdo :Bdelete<CR>
 inoremap <C-w> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
+let $LANG='en_US.UTF-8'
+set hidden
 
-set shiftwidth=2
-set autoindent
-set smartindent
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
 " let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
@@ -49,6 +49,10 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'neoclide/coc.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
+
+
+" indent guid
+Plug 'thaerkh/vim-indentguides'
 
 " lsp 
 Plug 'prabirshrestha/vim-lsp'
@@ -283,3 +287,10 @@ nnoremap gdl :diffget //3<CR>
 
 
 autocmd BufReadPost fugitive:///*//2/*,fugitive:///*//3/* setlocal nomodifiable readonly
+
+
+" indent guid
+let g:indentguides_ignorelist = ['text']
+
+let g:indentguides_spacechar = '┆'
+let g:indentguides_tabchar = '|'
