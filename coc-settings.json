@@ -25,13 +25,9 @@
   "eslint.enable": true,
   "vetur.format.defaultFormatter.html": "prettier",
   "vetur.format.defaultFormatter.scss": "prettier",
-  "vetur.dev.vlsPath": "./server/vetur",
-  "vetur.completion.autoImport": false,
-  "vetur.completion.useScaffoldSnippets": false,
-  "vetur.grammar.customBlocks": {
-    "docs": "md",
-    "i18n": "json"
-  },
+  "vetur.completion.autoImport": true,
+  "vetur.completion.useScaffoldSnippets": true,
+  "vetur.grammar.customBlocks": {},
   "eslint.options": { "configFile": "./.eslintrc.js" },
   "vetur.trace.server": "verbose",
   "vetur.dev.vlsPath": "~/.local/share/vim-lsp-settings/servers/vls/vls",
