@@ -9,7 +9,7 @@ nnoremap <Leader>q :bufdo :Bdelete<CR>
 inoremap <C-w> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
 let $LANG='en_US.UTF-8'
-
+set clipboard=unnamed,unnamedplus
 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
@@ -25,6 +25,7 @@ map ¬ <A-l>
 
 call plug#begin('~/.vim/plugged') 
 
+" Plugin 'christoomey/vim-system-copy'
 Plug 'liuchengxu/vista.vim'
 Plug 'matze/vim-move'
 Plug 'roxma/vim-tmux-clipboard'
@@ -51,8 +52,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'thaerkh/vim-indentguides'
 
 " lsp 
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 
 " marks
 Plug 'kshenoy/vim-signature'
@@ -122,23 +123,19 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=600
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
   set signcolumn=yes
 endif
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
+" completion 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -149,7 +146,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -242,11 +238,9 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
+command! -nargs=0 Format :call CocAction('format') 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
+command! -nargs=? Fold :call     CocAction('fold', <f-args>) 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
@@ -278,7 +272,13 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " explorer 
 nmap <space>e :CocCommand explorer<CR>
 
+" coc-lsp
 
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'vue',
+      \ 'help'
+      \]
 " ag 
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
@@ -387,4 +387,10 @@ let g:indentguides_ignorelist = ['text']
 
 let g:indentguides_spacechar = '┆'
 let g:indentguides_tabchar = '|'
+
+
+
+" vim airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
