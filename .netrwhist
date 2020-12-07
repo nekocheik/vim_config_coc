@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
+<<<<<<< HEAD
 let g:netrw_dirhistcnt =1
 let g:netrw_dirhist_1='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src/assets'
 let g:netrw_dirhist_0='/Users/cheikkone/Desktop/project/local-money/src/components/layouts'
@@ -10,3 +11,16 @@ let g:netrw_dirhist_5='/Users/cheikkone/Desktop/project/local-money/src/componen
 let g:netrw_dirhist_4='/Users/cheikkone/Desktop/project/local-money/src'
 let g:netrw_dirhist_3='/Users/cheikkone/Desktop/project/local-money'
 let g:netrw_dirhist_2='/Users/cheikkone/Desktop/project/local-money/src/components/atoms'
+=======
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute'
+let g:netrw_dirhist_2='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src/views/temoignage-questions-steps'
+let g:netrw_dirhist_1='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src/views'
+let g:netrw_dirhist_0='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src'
+let g:netrw_dirhist_9='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src/components'
+let g:netrw_dirhist_8='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src'
+let g:netrw_dirhist_7='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute'
+let g:netrw_dirhist_6='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute/src'
+let g:netrw_dirhist_5='/Users/chkon/op_front/la-banque-postale-financement-website-surlaroute'
+let g:netrw_dirhist_4='/Users/chkon/op_front/frontend-op-starter'
+>>>>>>> refacto

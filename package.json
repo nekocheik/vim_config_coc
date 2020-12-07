@@ -1,0 +1,27 @@
+{
+  "name": "nvim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nekocheik/vim_config_coc.git"
+  },
+  "author": "veggiemonk <julien.bisconti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nekocheik/vim_config_coc/issues"
+  },
+  "homepage": "https://github.com/nekocheik/vim_config_coc#readme",
+  "dependencies": {
+    "vls": "^0.5.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "prettier-eslint": "^12.0.0"
+  }
+}

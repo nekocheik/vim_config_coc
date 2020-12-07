@@ -1,117 +1,120 @@
+set hidden 
 set relativenumber
-set hidden
 let mapleader=" "
-set clipboard=unnamed
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
-noremap <C-w> :w<cr>
+noremap <C-s> :w!<cr>
+noremap <leader>b :CtrlPBuffer<CR> 
 nnoremap <Leader>q :bufdo :Bdelete<CR>
 inoremap <C-w> <C-c>:w<cr> 
-noremap <leader>q :q<cr>
+noremap <leader>q :q<cr> 
+let $LANG='en_US.UTF-8'
+set clipboard=unnamed,unnamedplus
 
-" folding 
-set foldmethod=syntax "syntax highlighting items specify folds
-set foldcolumn=1 "defines 1 col at window left, to indicate folding
-let javaScript_fold=1 "activate folding by JS syntax
-set foldlevelstart=99 "start file with all folds opened
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-set shiftwidth=2
+" let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
+" let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
 
-" autocmd FileType apache setlocal commentstring=#\ %s
+" " move line 
+map ∆ <A-j>
+map ˚ <A-k>
+map ˙ <A-h>
+map ¬ <A-l>
 
 
 call plug#begin('~/.vim/plugged') 
 
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'hendrikpetertje/vimify'
-Plug 'konfekt/fastfold'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plugin 'christoomey/vim-system-copy'
+Plug 'liuchengxu/vista.vim'
 Plug 'matze/vim-move'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'tmux-plugins/vim-tmux-focus-events' 
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'roxma/vim-tmux-clipboard' 
 Plug 'tpope/vim-fugitive'
 Plug 'asheq/close-buffers.vim'
 Plug 'bling/vim-bufferline'
-Plug 'terryma/vim-smooth-scroll'
-Plug 'kana/vim-repeat'
-Plug 'honza/vim-snippets'
-Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/gv.vim'
+Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'storyn26383/vim-vue'
-Plug 'digitaltoad/vim-pug' 
-Plug 'pangloss/vim-javascript'
-Plug 'tmux-plugins/vim-tmux-focus-events' 
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'roxma/vim-tmux-clipboard'
-Plug 'cocopon/iceberg.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'mhartington/oceanic-next'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kien/ctrlp.vim' 
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" themes
+Plug 'ayu-theme/ayu-vim' "
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'neoclide/coc.nvim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
-call plug#end()
-
-" For Neovim 0.1.3 and 0.1.4
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+Plug 'vim-airline/vim-airline-themes' 
 
 
-" Or if you have Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
-endif
+" indent guid
+Plug 'thaerkh/vim-indentguides'
 
+" lsp 
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
+
+" marks
+Plug 'kshenoy/vim-signature'
+
+
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-sensible'
+
+call plug#end() 
 " Theme
-syntax enable
-colorscheme Iceberg 
-syntax on
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 
-" Coc global extensions
+" set background=dark
+set termguicolors
+let g:quantum_italics=1
+let g:quantum_black=1
+" colorscheme quantum
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
-let g:coc_global_extensions=[ 
-	\ "coc-pairs",
-	\ "coc-xml", 
-	\ "coc-flutter", 
-	\ "coc-omnisharp",
-	\ "coc-lists",
-	\ "coc-phpactor",
-	\ "coc-prettier",
-	\ "coc-snippets",
-	\ "coc-eslint",
-	\ "coc-emmet",
-	\ "coc-explorer", 
-	\ "coc-html",
-	\ "coc-json",
-	\ "coc-r-lsp",
-	\ "coc-tailwindcss",
-	\ "coc-tsserver",
-	\ "coc-vetur",
-	\ "coc-git",
-	\]
+" vue
+" let g:vue_pre_processors = ['html', 'scss']
 
-" coc multi cursors
-hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+" folding
+" set foldmethod=expr
+"   \ foldexpr=lsp#ui#vim#folding#foldexpr()
+"   \ foldtext=lsp#ui#vim#folding#foldtext()
 
-nmap <expr> <silent> <leader>d <SID>select_current_word()
-function! s:select_current_word()
-  if !get(g:, 'coc_cursors_activated', 0)
-    return "\<Plug>(coc-cursors-word)"
-  endif
-  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-endfunc
+" ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
-" use normal command like `<leader>xi(`
-nmap <leader>x  <Plug>(coc-cursors-operator)
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules)$' 
+ 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|vendors\|dist\'
+
+
+" coc
+let g:coc_global_extensions = [
+      \'coc-explorer', 
+      \'coc-git', 
+      \'coc-tailwindcss',
+      \'coc-eslint',
+      \'coc-prettier',
+      \'coc-html',
+      \'coc-vimlsp',
+      \'coc-vetur',
+      \'coc-tsserver', 
+      \]
+
+" filetype plugin on
+" set omnifunc=syntaxcomplete#Complete
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -125,23 +128,19 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=600
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
   set signcolumn=yes
 endif
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
+" completion 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -214,7 +213,6 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
-
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -229,17 +227,25 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
+command! -nargs=0 Format :call CocAction('format') 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
+command! -nargs=? Fold :call     CocAction('fold', <f-args>) 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
@@ -266,160 +272,132 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" coc explorer
-nmap <leader>e :CocCommand explorer<CR>
+" autocmd FileType vue let b:coc_suggest_disable = 1
 
-" vue
+" explorer 
+nmap <space>e :CocCommand explorer<CR>
 
-let g:vue_pre_processors = 'detect_on_enter' 
-" let g:vue_pre_processors = ['pug', 'scss']
+" coc-lsp
+
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'vue',
+      \ 'help'
+      \]
+" ag 
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" preview 
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
 " git
 
-nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
-autocmd User CocGitStatusChange {command}
-
 " navigate chunks of current buffer
-nmap [h <Plug>(coc-git-prevchunk)
-nmap ]h <Plug>(coc-git-nextchunk)
-
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
-
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
-
-
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
-nnoremap <silent>gu :CocCommand git.chunkUndo<CR>
 
-
-" ctrlp
-function! SetupCtrlP()
-  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-    augroup CtrlPExtension
-      autocmd!
-      autocmd FocusGained  * CtrlPClearCache
-      autocmd BufWritePost * CtrlPClearCache
-    augroup END
-  endif
+" tags
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
-if has("autocmd")
-  autocmd VimEnter * :call SetupCtrlP()
-endif
+
+set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'method' ] ]
+      \ },
+      \ 'component_function': {
+     \   'method': 'NearestMethodOrFunction'
+      \ },
+      \ }
 
 
-set wildignore+=*/tmp/*,*/vendor/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules|vendor)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
+" How each level is indented and what to prepend.
+" This could make the display more compact or more spacious.
+" e.g., more compact: ["▸ ", ""]
+" Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+" Executive used when opening vista sidebar without specifying it.
+" See all the avaliable executives via `:echo g:vista#executives`.
+let g:vista_default_executive = 'ctags'
+
+" Set the executive for some filetypes explicitly. Use the explicit executive
+" instead of the default one for these filetypes when using `:Vista` without
+" specifying the executive.
+let g:vista_executive_for = {
+  \ 'cpp': 'vim_lsp',
+  \ 'typescript': 'vim_lsp',
+  \ 'javascript': 'vim_lsp',
+  \ 'vue': 'vim_lsp',
   \ }
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|test'
+" Declare the command including the executable and options used to generate ctags output
+" for some certain filetypes.The file path will be appened to your custom command.
+" For example:
+let g:vista_ctags_cmd = {
+      \ 'haskell': 'hasktags -x -o - -c',
+      \ }
 
-" language server
+" To enable fzf's preview window set g:vista_fzf_preview.
+" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" For example:
+let g:vista_fzf_preview = ['right:50%']
 
-let g:LanguageClient_serverCommands = {
-  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \ 'javascript': ['typescript-language-server', '--stdio'],
-  \ 'typescript': ['typescript-language-server', '--stdio'],
-  \ 'javascript.jsx': ['javascript-typescript-stdio', '--stdio'],
-  \ 'typescript.tsx': ['javascript-typescript-stdio', '--stdio'],
-  \ 'python': ['/usr/local/bin/pyls'],
-  \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-  \ 'vue': ['vls']
-  \ }
+" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
 
-au User lsp_setup call lsp#register_server({                                    
-     \ 'name': 'php-language-server',                                            
-     \ 'cmd': {server_info->['php', expand('~/.vim/plugged/php-language-server/bin/php-language-server.php')]},
-     \ 'whitelist': ['php'],                                                     
-     \ }) 
+" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
+
+autocmd BufReadPost fugitive:///*//2/*,fugitive:///*//3/* setlocal nomodifiable readonly
+
+
+" indent guid
+let g:indentguides_ignorelist = ['text']
+
+let g:indentguides_spacechar = '┆'
+let g:indentguides_tabchar = '|'
+
 
 
 " vim airline
-"
-let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-set t_Co=256
-
-" smooth scroll
-
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 1, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 1, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>  
-
-" move line
-
-map ∆ <A-j>
-map ˚ <A-k>
-map ˙ <A-h>
-map ¬ <A-l>
-
-
-" ag 
-
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-
-" preview
-
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+let g:airline#extensions#tabline#formatter = 'default'
 
 
 
-" javascript
-
-
-" folding javascript
-
-autocmd FileType scss setlocal shiftwidth=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType html       setlocal shiftwidth=2 tabstop=2
-autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
-
-" augroup javascript_folding
-"     au!
-"     au FileType javascript setlocal foldmethod=syntax
-" augroup END
-
-let g:javascript_conceal_function = "ƒ"
-let g:javascript_conceal_return = "⇚"
-let g:javascript_conceal_arrow_function = "⇒"
-
-
-" vim folding
-
-let g:markdown_folding = 1
-let g:tex_fold_enabled = 1
-let g:vimsyn_folding = 'af'
-let g:xml_syntax_folding = 1
-let g:javaScript_fold = 1
-let g:sh_fold_enabled= 7
-let g:ruby_fold = 1
-let g:perl_fold = 1
-let g:perl_fold_blocks = 1
-let g:r_syntax_folding = 1
-let g:rust_fold = 1
-let g:php_folding = 1
-
-
-" Spotify
-let g:spotify_token='NmUzYjQzMmRhZjNkNDViZmJlNDRjNDBlYTFhZjE4MmI6MjM2NDA5Y2Q2ZmRmNGRjZGIzOGVhODY2OTFlYmYyYmI='
-
-
-" dart
-let dart_html_in_string=v:true
-let g:dart_style_guide = 2
-let g:dart_format_on_save = 1
