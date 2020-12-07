@@ -42,6 +42,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " themes
+Plug 'ayu-theme/ayu-vim' "
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'neoclide/coc.nvim'
 Plug 'vim-airline/vim-airline'
@@ -67,11 +68,15 @@ Plug 'tpope/vim-sensible'
 call plug#end() 
 " Theme
 
-set background=dark
+" set background=dark
 set termguicolors
 let g:quantum_italics=1
 let g:quantum_black=1
-colorscheme quantum
+" colorscheme quantum
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
 " vue
 " let g:vue_pre_processors = ['html', 'scss']
@@ -92,7 +97,7 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendors\|dist\'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|vendors\|dist\'
 
 
 " coc
@@ -234,8 +239,8 @@ endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format') 
@@ -393,4 +398,6 @@ let g:indentguides_tabchar = '|'
 " vim airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+
+
 

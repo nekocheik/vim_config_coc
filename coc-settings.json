@@ -15,8 +15,8 @@
     "filePath": "./.eslintrc.json", 
     "eslintPath": "./.eslintrc.js"
   },
-  "eslint.autoFixOnSave": true,
-  "eslint.autoFix": true, 
+  "eslint.autoFixOnSave": false,
+  "eslint.autoFix": false, 
   "html.filetypes": ["html", "handlebars", "htmldjango", "php"],
   "vetur.validation.template": true,
   "vetur.validation.templateProps": true,
