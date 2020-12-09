@@ -1,6 +1,10 @@
 {
   "list.normalMappings": {
-    "<leader>u" : "git.chunkUndo"
+    "<leader>u": "git.chunkUndo"
+  },
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
   },
   "explorer.icon.enableNerdfont": true,
   "eslint.filetypes": [
@@ -10,13 +14,21 @@
     "typescriptreact",
     "vue"
   ],
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "html", "scss", "vue"], 
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "html",
+    "scss",
+    "vue",
+    "json",
+    "dart"
+  ],
   "prettier.eslintIntegration": {
-    "filePath": "./.eslintrc.json", 
+    "filePath": "./.eslintrc.json",
     "eslintPath": "./.eslintrc.js"
   },
   "eslint.autoFixOnSave": false,
-  "eslint.autoFix": false, 
+  "eslint.autoFix": false,
   "html.filetypes": ["html", "handlebars", "htmldjango", "php"],
   "vetur.validation.template": true,
   "vetur.validation.templateProps": true,
@@ -33,5 +45,19 @@
   "vetur.dev.vlsPath": "~/.local/share/vim-lsp-settings/servers/vls/vls",
   "eslint.run": "onSave",
   "vetur.format.defaultFormatter.js": "prettier-eslint",
-  "git.enableGutters": true
+  "git.enableGutters": true,
+  "suggest.noselect": false,
+  "flutter.enabled": true,
+  "languageserver": {
+    "dart": {
+      "command": "dart",
+      "args": [
+        "/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot",
+        "--lsp"
+      ],
+      "filetypes": ["dart"],
+      "disableDynamicRegister": true,
+      "trace.server": "verbose"
+    }
+  }
 }

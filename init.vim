@@ -9,12 +9,11 @@ nnoremap <Leader>q :bufdo :Bdelete<CR>
 inoremap <C-w> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
 let $LANG='en_US.UTF-8'
-set clipboard=unnamed,unnamedplus
-
+set clipboard=unnamed,unnamedplus 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
-" let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
+let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
 
 " " move line 
 map ∆ <A-j>
@@ -41,10 +40,15 @@ Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim' 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+" dart
+Plug 'dart-lang/dart-vim-plugin'
+
+Plug 'honza/vim-snippets'
+
 " themes
 Plug 'ayu-theme/ayu-vim' "
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 
@@ -108,32 +112,20 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-prettier',
       \'coc-html',
-      \'coc-vimlsp',
       \'coc-vetur',
       \'coc-tsserver', 
+      \'coc-snippets', 
+      \'coc-flutter', 
       \]
 
 " filetype plugin on
-" set omnifunc=syntaxcomplete#Complete
-
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
+set omnifunc=syntaxcomplete#Complete
+set hidden 
 set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=600
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" diagnostics appear/become resolved.
+set nowritebackup 
+set cmdheight=2 
+set updatetime=600 
+set shortmess+=c 
 if has("patch-8.1.1564")
   set signcolumn=number
 else
@@ -150,19 +142,17 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+endfunction 
 
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
-endif
+endif 
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -279,11 +269,11 @@ nmap <space>e :CocCommand explorer<CR>
 
 " coc-lsp
 
-let g:markdown_fenced_languages = [
-      \ 'vim',
-      \ 'vue',
-      \ 'help'
-      \]
+" let g:markdown_fenced_languages = [
+"       \ 'vim',
+"       \ 'vue',
+"       \ 'help'
+"       \]
 " ag 
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
@@ -309,6 +299,20 @@ xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
+" coc-snippets
+
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+
+" let g:coc_snippet_next = '<tab>'
 
 " tags
 function! NearestMethodOrFunction() abort
@@ -400,4 +404,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
 
-
+" dart
+let g:lsc_auto_map = v:true
+let g:lsc_enable_autocomplete = v:true
+au BufRead,BufNewFile *.dart set filetype=dart
