@@ -24,7 +24,7 @@ map ¬ <A-l>
 
 call plug#begin('~/.vim/plugged') 
 
-" Plugin 'christoomey/vim-system-copy'
+" Plug 'christoomey/vim-system-copy'
 Plug 'liuchengxu/vista.vim'
 Plug 'matze/vim-move'
 Plug 'roxma/vim-tmux-clipboard'
@@ -40,6 +40,7 @@ Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim' 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} 
 Plug 'junegunn/vim-peekaboo'
+Plug 'easymotion/vim-easymotion'
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
@@ -410,3 +411,19 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:lsc_auto_map = v:true
 let g:lsc_enable_autocomplete = v:true
 au BufRead,BufNewFile *.dart set filetype=dart
+
+
+" vimeasy modification
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" smartcase
+let g:EasyMotion_smartcase = 1 
