@@ -38,7 +38,8 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim' 
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} 
+Plug 'junegunn/vim-peekaboo'
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
@@ -107,6 +108,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|vendors\|dist\'
 " coc
 let g:coc_global_extensions = [
       \'coc-explorer', 
+      \'coc-tabnine', 
       \'coc-git', 
       \'coc-tailwindcss',
       \'coc-eslint',

@@ -27,6 +27,7 @@
     "filePath": "./.eslintrc.json",
     "eslintPath": "./.eslintrc.js"
   },
+  "ignore_all_lsp": true,
   "eslint.autoFixOnSave": false,
   "eslint.autoFix": false,
   "html.filetypes": ["html", "handlebars", "htmldjango", "php"],
