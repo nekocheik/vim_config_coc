@@ -54,6 +54,7 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
+Plug 'ulwlu/elly.vim'
 
 
 " indent guid
@@ -76,14 +77,16 @@ call plug#end()
 " Theme
 
 " set background=dark
-set termguicolors
 let g:quantum_italics=1
 let g:quantum_black=1
 " colorscheme quantum
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+" colorscheme ayu
+colorscheme elly
+set termguicolors
+
 
 " vue
 " let g:vue_pre_processors = ['html', 'scss']
@@ -287,8 +290,7 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
-" git
-
+" git 
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
 nmap <leader>f <Plug>(coc-git-prevchunk)
@@ -414,6 +416,11 @@ let g:indentguides_tabchar = '|'
 " vim airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_theme='elly' 
+
+let g:lightline = {
+      \ 'colorscheme': 'elly',
+      \ }
 
 
 " dart
@@ -439,3 +446,6 @@ let g:EasyMotion_smartcase = 1
 
 " spotify
 let g:spotify_token='NmUzYjQzMmRhZjNkNDViZmJlNDRjNDBlYTFhZjE4MmI6MjM2NDA5Y2Q2ZmRmNGRjZGIzOGVhODY2OTFlYmYyYmI='
+
+" Fzf 
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'

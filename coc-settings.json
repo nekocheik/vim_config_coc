@@ -28,6 +28,11 @@
     "filePath": "./.eslintrc.json",
     "eslintPath": "./.eslintrc.js"
   },
+  "git.addedSign.hlGroup": "CocDiffAdd",
+  "git.changedSign.hlGroup": "CocDiffChange",
+  "git.removedSign.hlGroup": "CocDiffDelete",
+  "git.topRemovedSign.hlGroup": "CocDiffDelete",
+  "git.changeRemovedSign.hlGroup": "CocDiffDelete",
   "ignore_all_lsp": true,
   "eslint.autoFixOnSave": false,
   "eslint.autoFix": false,
