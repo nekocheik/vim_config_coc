@@ -161,8 +161,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -264,8 +266,7 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" Resume latest coc list.  nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " autocmd FileType vue let b:coc_suggest_disable = 1
 
@@ -290,14 +291,20 @@ command! -bang -nargs=? -complete=dir Files
 
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
+nmap <leader>f <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
+nmap <leader>d <Plug>(coc-git-nextchunk)
+
 " navigate conflicts of current buffer
 nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
+
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
+
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
+
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)

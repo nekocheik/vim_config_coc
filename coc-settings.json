@@ -6,6 +6,7 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
+  "dfaf": "dfsd",
   "explorer.icon.enableNerdfont": true,
   "eslint.filetypes": [
     "javascript",

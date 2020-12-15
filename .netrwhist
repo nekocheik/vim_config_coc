@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/cheikkone/Projects'
 let g:netrw_dirhist_2='/Users/cheikkone/Projects/back_end_pyt'
 let g:netrw_dirhist_1='/Users/cheikkone/Projects/back_end_pyt/public'
 let g:netrw_dirhist_0='/Users/cheikkone/.config/karabiner'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_7='/Users/cheikkone/Projects/first-flutter-app/lib'
 let g:netrw_dirhist_6='/Users/cheikkone/Projects/first-flutter-app'
 let g:netrw_dirhist_5='/Users/cheikkone/Projects/first-flutter-app/lib'
 let g:netrw_dirhist_4='/Users/cheikkone/Projects/first-flutter-app'
-let g:netrw_dirhist_3='/Users/cheikkone/Projects/first-flutter-app/lib'
