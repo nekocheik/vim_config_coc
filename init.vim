@@ -8,6 +8,8 @@ noremap <leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>q :bufdo :Bdelete<CR>
 inoremap <C-w> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
+noremap <leader>w bvey:?<C-v><cr> 
+
 let $LANG='en_US.UTF-8'
 set clipboard=unnamed,unnamedplus 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -15,7 +17,7 @@ set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
 
-" " move line 
+" move line 
 map ∆ <A-j>
 map ˚ <A-k>
 map ˙ <A-h>
@@ -77,8 +79,8 @@ call plug#end()
 " Theme
 
 " set background=dark
-let g:quantum_italics=1
-let g:quantum_black=1
+" let g:quantum_italics=1
+" let g:quantum_black=1
 " colorscheme quantum
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
