@@ -45,6 +45,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'HendrikPetertje/vimify'
 Plug 'tpope/vim-abolish'
 Plug 'lucasprag/simpleblack'
+Plug 'christoomey/vim-system-copy'
+" highlight vim
+Plug 'yuezk/vim-js' 
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
@@ -299,6 +302,7 @@ command! -bang -nargs=? -complete=dir Files
 nmap [g <Plug>(coc-git-prevchunk)
 nmap <leader>f <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
+nmap <leader>d <Plug>(coc-git-nextchunk)
 nmap <leader>d <Plug>(coc-git-nextchunk)
 
 " navigate conflicts of current buffer
