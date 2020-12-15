@@ -6,6 +6,7 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
+  "dfaf": "dfsd",
   "explorer.icon.enableNerdfont": true,
   "eslint.filetypes": [
     "javascript",
@@ -27,6 +28,7 @@
     "filePath": ".eslintrc.json",
     "eslintPath": "./.eslintrc.js"
   },
+  "ignore_all_lsp": true,
   "eslint.autoFixOnSave": false,
   "eslint.autoFix": false,
   "html.filetypes": ["html", "handlebars", "htmldjango", "php"],
@@ -40,14 +42,16 @@
   "vetur.completion.autoImport": true,
   "vetur.completion.useScaffoldSnippets": true,
   "vetur.grammar.customBlocks": {},
-  "eslint.options": { "configFile": "./.eslintrc.js" },
+  "eslint.options": { "configFile": ["./.eslintrc.js", "./.eslintrc.json"] },
   "vetur.trace.server": "verbose",
   "vetur.dev.vlsPath": "~/.local/share/vim-lsp-settings/servers/vls/vls",
   "eslint.run": "onSave",
   "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "prettier.disableLanguages": ["vue"],
   "git.enableGutters": true,
   "suggest.noselect": false,
   "flutter.enabled": true,
+  "snippets.priority": 101,
   "languageserver": {
     "dart": {
       "command": "dart",

@@ -3,11 +3,13 @@ set relativenumber
 let mapleader=" "
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
-noremap <C-s> :w!<cr>
+noremap <C-s> :!<cr>
 noremap <leader>b :CtrlPBuffer<CR> 
 nnoremap <Leader>q :bufdo :Bdelete<CR>
-inoremap <C-w> <C-c>:w<cr> 
+inoremap <C-> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
+noremap <leader>q :q<cr> 
+
 let $LANG='en_US.UTF-8'
 set clipboard=unnamed,unnamedplus 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -15,16 +17,15 @@ set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
 
-" " move line 
+" move line 
 map ∆ <A-j>
 map ˚ <A-k>
 map ˙ <A-h>
-map ¬ <A-l>
-
+map ¬ <A-l> 
 
 call plug#begin('~/.vim/plugged') 
 
-" Plugin 'christoomey/vim-system-copy'
+" Plug 'christoomey/vim-system-copy'
 Plug 'liuchengxu/vista.vim'
 Plug 'matze/vim-move'
 Plug 'roxma/vim-tmux-clipboard'
@@ -38,7 +39,15 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim' 
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} 
+Plug 'junegunn/vim-peekaboo'
+Plug 'easymotion/vim-easymotion'
+Plug 'HendrikPetertje/vimify'
+Plug 'tpope/vim-abolish'
+Plug 'lucasprag/simpleblack'
+Plug 'christoomey/vim-system-copy'
+" highlight vim
+Plug 'yuezk/vim-js' 
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
@@ -51,6 +60,7 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
+Plug 'ulwlu/elly.vim'
 
 
 " indent guid
@@ -73,14 +83,17 @@ call plug#end()
 " Theme
 
 " set background=dark
-set termguicolors
-let g:quantum_italics=1
-let g:quantum_black=1
+" let g:quantum_italics=1
+" let g:quantum_black=1
 " colorscheme quantum
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+" colorscheme ayu
+" colorscheme elly
+colorscheme simpleblack
+set termguicolors
+
 
 " vue
 " let g:vue_pre_processors = ['html', 'scss']
@@ -107,6 +120,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|vendors\|dist\'
 " coc
 let g:coc_global_extensions = [
       \'coc-explorer', 
+      \'coc-todolist', 
+      \'coc-tabnine', 
       \'coc-git', 
       \'coc-tailwindcss',
       \'coc-eslint',
@@ -156,8 +171,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -259,8 +276,7 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" Resume latest coc list.  nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " autocmd FileType vue let b:coc_suggest_disable = 1
 
@@ -281,18 +297,24 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
-" git
-
+" git 
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
+nmap <leader>f <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
+nmap <leader>d <Plug>(coc-git-nextchunk)
+nmap <leader>d <Plug>(coc-git-nextchunk)
+
 " navigate conflicts of current buffer
 nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
+
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
+
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
+
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
@@ -402,9 +424,56 @@ let g:indentguides_tabchar = '|'
 " vim airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_theme='elly' 
+
+let g:lightline = {
+      \ 'colorscheme': 'elly',
+      \ }
 
 
 " dart
 let g:lsc_auto_map = v:true
 let g:lsc_enable_autocomplete = v:true
 au BufRead,BufNewFile *.dart set filetype=dart
+
+
+" vimeasy modification
+
+" Gif config
+
+" vim easy_motion
+
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" map * <Plug>(easymotion-sn)<C-R><C-W>
+map * <Plug>(easymotion-tn)<C-R><C-W>
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev) 
+
+" smartcase
+let g:EasyMotion_smartcase = 1 
+
+" spotify
+let g:spotify_token='NmUzYjQzMmRhZjNkNDViZmJlNDRjNDBlYTFhZjE4MmI6MjM2NDA5Y2Q2ZmRmNGRjZGIzOGVhODY2OTFlYmYyYmI='
+
+" Fzf 
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"' 
+
+" fugitive vim 
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
