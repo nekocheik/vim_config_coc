@@ -19,8 +19,7 @@ let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python'
 map ∆ <A-j>
 map ˚ <A-k>
 map ˙ <A-h>
-map ¬ <A-l>
-
+map ¬ <A-l> 
 
 call plug#begin('~/.vim/plugged') 
 
@@ -42,6 +41,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'junegunn/vim-peekaboo'
 Plug 'easymotion/vim-easymotion'
 Plug 'HendrikPetertje/vimify'
+Plug 'tpope/vim-abolish'
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
