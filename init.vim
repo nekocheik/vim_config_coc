@@ -41,6 +41,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} 
 Plug 'junegunn/vim-peekaboo'
 Plug 'easymotion/vim-easymotion'
+Plug 'HendrikPetertje/vimify'
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
@@ -109,6 +110,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|vendors\|dist\'
 " coc
 let g:coc_global_extensions = [
       \'coc-explorer', 
+      \'coc-todolist', 
       \'coc-tabnine', 
       \'coc-git', 
       \'coc-tailwindcss',
@@ -427,3 +429,6 @@ map  N <Plug>(easymotion-prev)
 
 " smartcase
 let g:EasyMotion_smartcase = 1 
+
+" spotify
+let g:spotify_token='NmUzYjQzMmRhZjNkNDViZmJlNDRjNDBlYTFhZjE4MmI6MjM2NDA5Y2Q2ZmRmNGRjZGIzOGVhODY2OTFlYmYyYmI='

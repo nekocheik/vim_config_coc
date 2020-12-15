@@ -46,6 +46,7 @@
   "vetur.dev.vlsPath": "~/.local/share/vim-lsp-settings/servers/vls/vls",
   "eslint.run": "onSave",
   "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "prettier.disableLanguages": ["vue"],
   "git.enableGutters": true,
   "suggest.noselect": false,
   "flutter.enabled": true,
