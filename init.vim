@@ -3,12 +3,12 @@ set relativenumber
 let mapleader=" "
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
-noremap <C-s> :w!<cr>
+noremap <C-s> :!<cr>
 noremap <leader>b :CtrlPBuffer<CR> 
 nnoremap <Leader>q :bufdo :Bdelete<CR>
-inoremap <C-w> <C-c>:w<cr> 
+inoremap <C-> <C-c>:w<cr> 
 noremap <leader>q :q<cr> 
-noremap <leader>w bvey:?<C-v><cr> 
+noremap <leader>q :q<cr> 
 
 let $LANG='en_US.UTF-8'
 set clipboard=unnamed,unnamedplus 
@@ -44,6 +44,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'easymotion/vim-easymotion'
 Plug 'HendrikPetertje/vimify'
 Plug 'tpope/vim-abolish'
+Plug 'lucasprag/simpleblack'
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
@@ -86,7 +87,8 @@ call plug#end()
 " let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
-colorscheme elly
+" colorscheme elly
+colorscheme simpleblack
 set termguicolors
 
 
@@ -434,14 +436,30 @@ au BufRead,BufNewFile *.dart set filetype=dart
 " vimeasy modification
 
 " Gif config
+
+" vim easy_motion
+
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+
+" map * <Plug>(easymotion-sn)<C-R><C-W>
+map * <Plug>(easymotion-tn)<C-R><C-W>
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
 map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+map  N <Plug>(easymotion-prev) 
 
 " smartcase
 let g:EasyMotion_smartcase = 1 
@@ -450,4 +468,4 @@ let g:EasyMotion_smartcase = 1
 let g:spotify_token='NmUzYjQzMmRhZjNkNDViZmJlNDRjNDBlYTFhZjE4MmI6MjM2NDA5Y2Q2ZmRmNGRjZGIzOGVhODY2OTFlYmYyYmI='
 
 " Fzf 
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"' 

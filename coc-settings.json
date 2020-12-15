@@ -28,11 +28,6 @@
     "filePath": "./.eslintrc.json",
     "eslintPath": "./.eslintrc.js"
   },
-  "git.addedSign.hlGroup": "CocDiffAdd",
-  "git.changedSign.hlGroup": "CocDiffChange",
-  "git.removedSign.hlGroup": "CocDiffDelete",
-  "git.topRemovedSign.hlGroup": "CocDiffDelete",
-  "git.changeRemovedSign.hlGroup": "CocDiffDelete",
   "ignore_all_lsp": true,
   "eslint.autoFixOnSave": false,
   "eslint.autoFix": false,
@@ -47,7 +42,7 @@
   "vetur.completion.autoImport": true,
   "vetur.completion.useScaffoldSnippets": true,
   "vetur.grammar.customBlocks": {},
-  "eslint.options": { "configFile": "./.eslintrc.js" },
+  "eslint.options": { "configFile": ["./.eslintrc.js", "./.eslintrc.json"] },
   "vetur.trace.server": "verbose",
   "vetur.dev.vlsPath": "~/.local/share/vim-lsp-settings/servers/vls/vls",
   "eslint.run": "onSave",
@@ -56,6 +51,7 @@
   "git.enableGutters": true,
   "suggest.noselect": false,
   "flutter.enabled": true,
+  "snippets.priority": 101,
   "languageserver": {
     "dart": {
       "command": "dart",
