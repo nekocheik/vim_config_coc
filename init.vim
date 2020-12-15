@@ -473,3 +473,9 @@ let g:spotify_token='NmUzYjQzMmRhZjNkNDViZmJlNDRjNDBlYTFhZjE4MmI6MjM2NDA5Y2Q2ZmR
 
 " Fzf 
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"' 
+
+test fugitive commit 1 - side of cheik 
+
+test fugitive commit 2 - side of cheik 
+
+test fugitive commit 3 - side of cheik 
