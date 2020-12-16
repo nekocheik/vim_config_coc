@@ -3,11 +3,9 @@ set relativenumber
 let mapleader=" "
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
-noremap <C-s> :!<cr>
+noremap <C-s> :w!<cr>
 noremap <leader>b :CtrlPBuffer<CR> 
 nnoremap <Leader>q :bufdo :Bdelete<CR>
-inoremap <C-> <C-c>:w<cr> 
-noremap <leader>q :q<cr> 
 noremap <leader>q :q<cr> 
 
 let $LANG='en_US.UTF-8'
@@ -25,7 +23,6 @@ map ¬ <A-l>
 
 call plug#begin('~/.vim/plugged') 
 
-" Plug 'christoomey/vim-system-copy'
 Plug 'liuchengxu/vista.vim'
 Plug 'matze/vim-move'
 Plug 'roxma/vim-tmux-clipboard'
@@ -46,8 +43,12 @@ Plug 'HendrikPetertje/vimify'
 Plug 'tpope/vim-abolish'
 Plug 'lucasprag/simpleblack'
 Plug 'christoomey/vim-system-copy'
+
 " highlight vim
 Plug 'yuezk/vim-js' 
+
+" highlight vue
+Plug 'posva/vim-vue'
 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
@@ -83,8 +84,8 @@ call plug#end()
 " Theme
 
 " set background=dark
-" let g:quantum_italics=1
-" let g:quantum_black=1
+let g:quantum_italics=1
+let g:quantum_black=1
 " colorscheme quantum
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
