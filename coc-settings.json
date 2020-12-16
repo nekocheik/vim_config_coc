@@ -25,7 +25,7 @@
     "dart"
   ],
   "prettier.eslintIntegration": {
-    "filePath": "./.eslintrc.json",
+    "filePath": ".eslintrc.json",
     "eslintPath": "./.eslintrc.js"
   },
   "ignore_all_lsp": true,

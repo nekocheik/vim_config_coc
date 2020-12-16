@@ -1,4 +1,17 @@
 let g:netrw_dirhistmax  =10
+<<<<<<< HEAD
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/chkon/op_front/sncf-adictiz/src/views'
+let g:netrw_dirhist_3='/Users/chkon/op_front/sncf-adictiz/src'
+let g:netrw_dirhist_2='/Users/chkon/op_front/sncf-adictiz/src/components'
+let g:netrw_dirhist_1='/Users/chkon/op_front/sncf-adictiz/src'
+let g:netrw_dirhist_0='/Users/chkon/op_front/sncf-adictiz'
+let g:netrw_dirhist_9='/Users/chkon/op_front/sncf-adictiz/src'
+let g:netrw_dirhist_8='/Users/chkon/op_front/sncf-adictiz'
+let g:netrw_dirhist_7='/Users/chkon/frontend/src/components'
+let g:netrw_dirhist_6='/Users/chkon/frontend/src'
+let g:netrw_dirhist_5='/Users/chkon/frontend'
+=======
 let g:netrw_dirhistcnt =5
 let g:netrw_dirhist_5='/Users/cheikkone/.config/nvim'
 let g:netrw_dirhist_4='/Users/cheikkone/Projects/local-money'
@@ -10,3 +23,4 @@ let g:netrw_dirhist_9='/Users/cheikkone/Projects/first-flutter-app/lib'
 let g:netrw_dirhist_8='/Users/cheikkone/Projects/first-flutter-app'
 let g:netrw_dirhist_7='/Users/cheikkone/Projects/first-flutter-app/lib'
 let g:netrw_dirhist_6='/Users/cheikkone/Projects/first-flutter-app'
+>>>>>>> 82d06adf18e8f5d5c9930143f8d652e31667b9ee
