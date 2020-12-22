@@ -41,7 +41,8 @@ Plug 'asheq/close-buffers.vim'
 " Plug 'bling/vim-bufferline'
 Plug 'cohama/lexima.vim'
 " add commentary on all languages
-Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdcommenter'
+" Plug 'tpope/vim-commentary'
 " easy surround
 Plug 'tpope/vim-surround'
 " search files on all vim
@@ -53,28 +54,30 @@ Plug 'junegunn/vim-peekaboo'
 " easy move
 Plug 'easymotion/vim-easymotion'
 " spotify
-Plug 'hendrikpetertje/vimify'
-
+Plug 'hendrikpetertje/vimify' 
 " Plug 'tpope/vim-abolish'
 Plug 'lucasprag/simpleblack'
 " current theme
 Plug 'christoomey/vim-system-copy' 
 " highlight vim
 Plug 'yuezk/vim-js' 
-" highlight vue
+" dart
+Plug 'dart-lang/dart-vim-plugin'
+" vue
 Plug 'posva/vim-vue'
-" dart
-Plug 'dart-lang/dart-vim-plugin'
+Plug 'tyru/caw'
+
 " share snippets
 Plug 'honza/vim-snippets' 
 " dart
 Plug 'dart-lang/dart-vim-plugin'
 " share snippets
 Plug 'honza/vim-snippets' 
+" coc vim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " themes
 Plug 'ayu-theme/ayu-vim' "
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'ulwlu/elly.vim' 
@@ -84,6 +87,7 @@ Plug 'thaerkh/vim-indentguides'
 Plug 'kshenoy/vim-signature' 
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-sensible'
 
@@ -102,9 +106,6 @@ let g:quantum_black=1
 colorscheme simpleblack
 set termguicolors
 
-
-" vue
-" let g:vue_pre_processors = ['html', 'scss']
 
 " folding
 " set foldmethod=expr
@@ -125,20 +126,24 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|vendors\|dist\' 
 
 " coc
+
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', '.eslintrc']
+
 let g:coc_global_extensions = [
       \'coc-explorer', 
       \'coc-todolist', 
-      \'coc-tabnine', 
       \'coc-git', 
       \'coc-tailwindcss',
       \'coc-eslint',
       \'coc-prettier',
-      \'coc-html',
       \'coc-vetur',
       \'coc-tsserver', 
       \'coc-snippets', 
       \'coc-flutter', 
       \]
+
+" \'coc-tabnine', 
+" \'coc-html',
 
 " filetype plugin on
 " set omnifunc=syntaxcomplete#Complete
@@ -146,8 +151,9 @@ set hidden
 set nobackup
 set nowritebackup 
 set cmdheight=2 
-set updatetime=600 
+set updatetime=800 
 set shortmess+=c 
+
 if has("patch-8.1.1564")
   set signcolumn=number
 else
@@ -174,7 +180,7 @@ else
 endif 
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>" 
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -292,11 +298,11 @@ nmap <space>e :CocCommand explorer<CR>
 
 " coc-lsp
 
-" let g:markdown_fenced_languages = [
-"       \ 'vim',
-"       \ 'vue',
-"       \ 'help'
-"       \]
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'vue',
+      \ 'help'
+      \]
 " ag 
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
@@ -460,17 +466,6 @@ function! s:incsearch_config(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" map * <Plug>(easymotion-sn)<C-R><C-W>
-map * <Plug>(easymotion-tn)<C-R><C-W>
-
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev) 
 
 " smartcase
 let g:EasyMotion_smartcase = 1 
@@ -484,3 +479,58 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 " fugitive vim 
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
+
+" vue
+let g:vue_pre_processors = ['html', 'scss']
+
+" commentary
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+map <leader>; <plug>NERDCommenterToggle
+
+" vuejs
+
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
