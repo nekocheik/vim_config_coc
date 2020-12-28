@@ -1,5 +1,6 @@
 set hidden 
 set relativenumber
+set smartcase 
 let mapleader=" "
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
@@ -7,13 +8,16 @@ noremap <C-s> :w!<cr>
 noremap <leader>b :CtrlPBuffer<CR> 
 nnoremap <Leader>q :bufdo :Bdelete<CR>
 noremap <leader>q :q<cr> 
+setlocal foldmethod=expr
+
+set nocompatible
 
 let $LANG='en_US.UTF-8'
 set clipboard=unnamed,unnamedplus 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python' 
+" let g:python_host_prog = '/Users/cheikkone/.pyenv/versions/neovim2/bin/python'
+" let g:python3_host_prog = '/Users/cheikkone/.pyenv/versions/neovim3/bin/python'
 
 " move line 
 map ∆ <A-j>
@@ -65,7 +69,10 @@ Plug 'yuezk/vim-js'
 Plug 'dart-lang/dart-vim-plugin'
 " vue
 Plug 'posva/vim-vue'
-Plug 'tyru/caw'
+" scss
+Plug 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
+Plug 'cakebaker/scss-syntax.vim'
+" Plug 'sheerun/vim-polyglot'
 
 " share snippets
 Plug 'honza/vim-snippets' 
@@ -95,16 +102,17 @@ call plug#end()
 " Theme
 
 " set background=dark
+set termguicolors 
 let g:quantum_italics=1
 let g:quantum_black=1
 " colorscheme quantum
 " let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
+let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
 " colorscheme elly
-colorscheme simpleblack
-set termguicolors
+" colorscheme simpleblack
 
 
 " folding
@@ -125,11 +133,26 @@ let g:ctrlp_custom_ignore = {
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor\|vendors\|dist\' 
 
+" CtrlP auto cache clearing.
+" ----------------------------------------------------------------------------
+function! SetupCtrlP()
+  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+    augroup CtrlPExtension
+      autocmd!
+      autocmd FocusGained  * CtrlPClearCache
+      autocmd BufWritePost * CtrlPClearCache
+    augroup END
+  endif
+endfunction
+if has("autocmd")
+  autocmd VimEnter * :call SetupCtrlP()
+endif
+
 " coc
 
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env', '.eslintrc']
 
-let g:coc_global_extensions = [
+let g:coc_global_extensions = [ 
       \'coc-explorer', 
       \'coc-todolist', 
       \'coc-git', 
@@ -185,8 +208,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>j <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
@@ -315,8 +338,8 @@ command! -bang -nargs=? -complete=dir Files
 nmap [g <Plug>(coc-git-prevchunk)
 nmap <leader>f <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
-nmap <leader>d <Plug>(coc-git-nextchunk)
-nmap <leader>d <Plug>(coc-git-nextchunk)
+nmap <leader>d <Plug>(coc-git-prevchunk)
+nmap <leader>f <Plug>(coc-git-nextchunk)
 
 " navigate conflicts of current buffer
 nmap [c <Plug>(coc-git-prevconflict)
@@ -513,8 +536,7 @@ let g:NERDToggleCheckAllLines = 1
 
 map <leader>; <plug>NERDCommenterToggle
 
-" vuejs
-
+" nerdcommenter
 let g:ft = ''
 function! NERDCommenter_before()
   if &ft == 'vue'
@@ -534,3 +556,25 @@ function! NERDCommenter_after()
     let g:ft = ''
   endif
 endfunction
+
+" scss
+au BufRead,BufNewFile *.scss set filetype=scss.css
+
+" vim-airline
+let g:airline#extensions#whitespace#enabled = 0
+
+
+" syntastic
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+let g:syntastic_vue_checkers = ['vue']
+let g:syntastic_html_checkers = ['html']
