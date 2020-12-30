@@ -346,7 +346,9 @@ nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
 
 " show chunk diff at current position
+nmap <leader>gs <Plug>(coc-git-chunkinfo)
 nmap gs <Plug>(coc-git-chunkinfo)
+
 
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
@@ -561,20 +563,4 @@ endfunction
 au BufRead,BufNewFile *.scss set filetype=scss.css
 
 " vim-airline
-let g:airline#extensions#whitespace#enabled = 0
-
-
-" syntastic
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-
-let g:syntastic_vue_checkers = ['vue']
-let g:syntastic_html_checkers = ['html']
+let g:airline#extensions#whitespace#enabled = 0 
