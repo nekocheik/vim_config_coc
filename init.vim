@@ -1,6 +1,8 @@
 set hidden 
 set relativenumber
 set smartcase 
+set incsearch
+set inccommand=split
 let mapleader=" "
 map <Leader>m :source $MYVIMRC<CR>
 map <leader>; :Commentary<CR>
