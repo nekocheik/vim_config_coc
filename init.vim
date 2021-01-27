@@ -1,3 +1,6 @@
+set binary
+set noeol
+set nofixendofline 
 set hidden 
 set relativenumber
 set smartcase 
@@ -70,7 +73,9 @@ Plug 'yuezk/vim-js'
 " dart
 Plug 'dart-lang/dart-vim-plugin'
 " vue
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
+Plug 'leafOfTree/vim-vue-plugin' 
+
 " scss
 Plug 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
 Plug 'cakebaker/scss-syntax.vim'
@@ -90,6 +95,9 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'ulwlu/elly.vim' 
+Plug 'wadackel/vim-dogrun'
+Plug 'ajmwagar/vim-deus' 
+
 " indent guid
 Plug 'thaerkh/vim-indentguides' 
 " marks
@@ -104,17 +112,28 @@ call plug#end()
 " Theme
 
 " set background=dark
-set termguicolors 
-let g:quantum_italics=1
-let g:quantum_black=1
+" set termguicolors
+" let g:quantum_italics=1
+" let g:quantum_black=1
+" colorscheme dogrun
 " colorscheme quantum
 " let ayucolor="light"  " for light version of theme
-colorscheme ayu
-let ayucolor="mirage" " for mirage version of theme
+" colorscheme ayu
+" let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
 " colorscheme elly
 " colorscheme simpleblack
+"
+set t_Co=256
+" set termguicolors
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" set background=dark    " Setting dark mode
+colorscheme deus
+let g:deus_termcolors=256
 
 
 " folding
@@ -508,7 +527,24 @@ nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 
 " vue
-let g:vue_pre_processors = ['html', 'scss']
+" let g:vue_pre_processors = ['html', 'scss']
+let g:vim_vue_plugin_load_full_syntax = 1
+let g:vim_vue_plugin_use_sass = 1
+let g:vim_vue_plugin_highlight_vue_attr = 1
+let g:vim_vue_plugin_highlight_vue_keyword = 1
+
+function! OnChangeVueSubtype(subtype)
+  echom 'Subtype is '.a:subtype
+  if a:subtype == 'html'
+    setlocal commentstring=<!--%s-->
+    setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+  elseif a:subtype =~ 'css'
+    setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
+  else
+    setlocal commentstring=//%s
+    setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+  endif
+endfunction
 
 " commentary
 " Create default mappings

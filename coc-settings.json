@@ -15,15 +15,6 @@
     "typescriptreact",
     "vue"
   ],
-  "coc.preferences.formatOnSaveFiletypes": [
-    "vue",
-    "css",
-    "markdown",
-    "html",
-    "scss",
-    "json",
-    "dart"
-  ],
   "prettier.eslintIntegration": {
     "filePath": ".eslintrc.json",
     "eslintPath": "./.eslintrc.js"
