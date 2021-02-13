@@ -146,6 +146,9 @@ let g:coc_global_extensions = [
       \'coc-vetur',
       \'coc-json',
       \'coc-emmet',
+      \'coc-tailwindcss',
+      \'coc-fzf-preview',
+      \'coc-tsserver',
       \]
 
 " coc explorer
