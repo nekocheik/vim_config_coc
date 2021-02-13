@@ -62,6 +62,9 @@ Plug 'honza/vim-snippets'
 " coc vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" twig
+Plug 'nelsyeung/twig.vim' 
+
 " themes
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -75,13 +78,14 @@ Plug 'ajmwagar/vim-deus'
 Plug 'thaerkh/vim-indentguides' 
 " marks
 Plug 'kshenoy/vim-signature' 
-" (Optional) Multi-entry selection UI.
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-sensible'
 
 Plug 'mhinz/vim-startify'
+
+Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'romgrk/lib.kom' -- removed! You can remove it from your vimrc
+Plug 'romgrk/barbar.nvim'
 
 call plug#end() 
 
@@ -91,3 +95,5 @@ source $HOME/.config/nvim/plugin/coc.vim
 source $HOME/.config/nvim/plugin/ctrlp.vim
 " fugitive
 source $HOME/.config/nvim/plugin/fugitive.vim
+" bar
+source $HOME/.config/nvim/plugin/bar.vim
