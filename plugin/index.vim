@@ -36,7 +36,7 @@ Plug 'easymotion/vim-easymotion'
 " current theme
 Plug 'christoomey/vim-system-copy' 
 
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " highlight vim
 " Plug 'yuezk/vim-js' 
@@ -44,7 +44,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'dart-lang/dart-vim-plugin'
 " vue
 " Plug 'posva/vim-vue'
-" Plug 'leafOfTree/vim-vue-plugin'  ->
+Plug 'leafOfTree/vim-vue-plugin'
 
 " scss
 " Plug 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
@@ -91,4 +91,3 @@ source $HOME/.config/nvim/plugin/coc.vim
 source $HOME/.config/nvim/plugin/ctrlp.vim
 " fugitive
 source $HOME/.config/nvim/plugin/fugitive.vim
-

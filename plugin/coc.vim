@@ -141,16 +141,13 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 
+let g:coc_global_extensions = [ 
+      \'coc-explorer', 
+      \'coc-vetur',
+      \'coc-json',
+      \'coc-emmet',
+      \]
 
 " coc explorer
 
 nmap <space>e :CocCommand explorer<CR>
-" \'coc-todolist', 
-      " \'coc-git', 
-      " \'coc-tailwindcss',
-      " \'coc-eslint',
-      " \'coc-prettier',
-      " \'coc-vetur',
-      " \'coc-tsserver', 
-      " \'coc-snippets',
-      " \'coc-flutter', 
