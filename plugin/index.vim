@@ -55,7 +55,7 @@ Plug 'leafOfTree/vim-vue-plugin'
 Plug 'honza/vim-snippets' 
 " dart
 " Plug 'dart-lang/dart-vim-plugin'
-
+Plug 'shime/vim-livedown'
 " share snippets
 Plug 'honza/vim-snippets' 
 
@@ -97,3 +97,5 @@ source $HOME/.config/nvim/plugin/ctrlp.vim
 source $HOME/.config/nvim/plugin/fugitive.vim
 " bar
 source $HOME/.config/nvim/plugin/bar.vim
+" markdown
+source $HOME/.config/nvim/plugin/markdow.vim
