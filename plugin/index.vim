@@ -84,8 +84,12 @@ Plug 'tpope/vim-sensible'
 Plug 'mhinz/vim-startify'
 
 Plug 'kyazdani42/nvim-web-devicons'
+
 " Plug 'romgrk/lib.kom' -- removed! You can remove it from your vimrc
 Plug 'romgrk/barbar.nvim'
+
+" markdow
+" Plug 'plasticboy/vim-markdown'
 
 call plug#end() 
 
