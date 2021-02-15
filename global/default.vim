@@ -14,3 +14,4 @@ let $LANG='en_US.UTF-8'
 set clipboard=unnamed,unnamedplus 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set t_Co=256
+autocmd BufReadPost * setlocal autoindent

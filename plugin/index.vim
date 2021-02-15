@@ -1,4 +1,3 @@
-
 call plug#begin('~/.vim/plugged') 
 " show tags
 " Plug 'liuchengxu/vista.vim'
@@ -88,11 +87,17 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'romgrk/lib.kom' -- removed! You can remove it from your vimrc
 Plug 'romgrk/barbar.nvim'
 
-Plug 'stanangeloff/php.vim'
+Plug 'rayburgemeestre/phpfolding.vim'
+
+Plug '2072/PHP-Indenting-for-VIm'
+
+Plug 'honza/vim-snippets'
 
 " markdow
 " Plug 'plasticboy/vim-markdown'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end() 
 
 " coc

@@ -1,0 +1,10 @@
+{
+    "name": "chkon/nvim",
+    "authors": [
+        {
+            "name": "Cheik Kone",
+            "email": "cheik.kone@numberly.com"
+        }
+    ],
+    "require": {}
+}
