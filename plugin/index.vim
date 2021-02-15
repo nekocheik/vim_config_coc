@@ -88,6 +88,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'romgrk/lib.kom' -- removed! You can remove it from your vimrc
 Plug 'romgrk/barbar.nvim'
 
+Plug 'stanangeloff/php.vim'
+
 " markdow
 " Plug 'plasticboy/vim-markdown'
 
