@@ -30,19 +30,10 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'junegunn/vim-peekaboo'
 " easy move
 Plug 'easymotion/vim-easymotion'
-" spotify
-" Plug 'hendrikpetertje/vimify' 
 " current theme
 Plug 'christoomey/vim-system-copy' 
 
-" Plug 'sheerun/vim-polyglot'
-
-" highlight vim
-" Plug 'yuezk/vim-js' 
-" dart
-" Plug 'dart-lang/dart-vim-plugin'
 " vue
-" Plug 'posva/vim-vue'
 Plug 'leafOfTree/vim-vue-plugin'
 
 " scss
@@ -53,7 +44,7 @@ Plug 'leafOfTree/vim-vue-plugin'
 " share snippets
 Plug 'honza/vim-snippets' 
 " dart
-" Plug 'dart-lang/dart-vim-plugin'
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'shime/vim-livedown'
 " share snippets
 Plug 'honza/vim-snippets' 
@@ -66,7 +57,7 @@ Plug 'nelsyeung/twig.vim'
 
 " themes
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
@@ -95,6 +86,7 @@ Plug 'honza/vim-snippets'
 
 " markdow
 " Plug 'plasticboy/vim-markdown'
+
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
