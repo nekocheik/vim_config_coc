@@ -149,6 +149,7 @@ let g:coc_global_extensions = [
       \'coc-tailwindcss',
       \'coc-fzf-preview',
       \'coc-tsserver',
+      \'coc-flutter',
       \]
 
 " coc explorer

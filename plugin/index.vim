@@ -36,11 +36,6 @@ Plug 'christoomey/vim-system-copy'
 " vue
 Plug 'leafOfTree/vim-vue-plugin'
 
-" scss
-" Plug 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
-" Plug 'cakebaker/scss-syntax.vim'
-" Plug 'sheerun/vim-polyglot'
-
 " share snippets
 Plug 'honza/vim-snippets' 
 " dart
@@ -83,10 +78,6 @@ Plug 'rayburgemeestre/phpfolding.vim'
 Plug '2072/PHP-Indenting-for-VIm'
 
 Plug 'honza/vim-snippets'
-
-" markdow
-" Plug 'plasticboy/vim-markdown'
-
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
